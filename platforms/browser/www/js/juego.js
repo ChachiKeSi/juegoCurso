@@ -1,7 +1,7 @@
 var app = {
     inicio: function () {
         DIAMETRO_BOLA = 50;
-        velocidad = 20000;
+        velocidad = 40000;
         puntuacion = 0;
         vida = 100;
         total = 0;
@@ -53,7 +53,6 @@ var app = {
             //sprite.animations.play('walk', 20, true);
 
             sprite.inputEnabled = true;
-            sprite.input.useHandCursor = true;
             sprite.events.onInputDown.add(app.destroySprite, this);
             game.physics.arcade.enable(sprite);
             sprite.body.collideWorldBounds = true;
@@ -83,9 +82,11 @@ var app = {
     decrementaVida: function (sprite) {
         if (vida > 0)
             vida = vida - 5;
-        if (vida > 0) {
-            finText.text = "Has obtenido " + puntuacion + " puntos.\n Agita para reiniciar";
-            app.vigilaSensores();
+        if (vida <= 0) {
+            finText.text = "Has obtenido " + puntuacion + " puntos.\n Pulsa aquí para reiniciar";
+            finText.inputEnabled = true;
+            finText.events.onInputDown.add(app.recomienza, this);
+            //app.vigilaSensores();
         }
         lifeText.text = vida;
         total--;
@@ -96,7 +97,7 @@ var app = {
         if (vida > 0) {
             puntuacion++;
             scoreText.text = puntuacion;
-            velocidad -= 500;
+            velocidad -= 100;
         }
     },
 
