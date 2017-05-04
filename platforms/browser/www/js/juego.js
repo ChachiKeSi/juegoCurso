@@ -97,7 +97,7 @@ var app = {
         if (vida > 0) {
             puntuacion++;
             scoreText.text = puntuacion;
-            velocidad -= 100;
+            velocidad -= 500;
         }
     },
 
