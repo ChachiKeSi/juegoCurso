@@ -30,13 +30,13 @@ var app = {
             });
             var spriteCorazon = game.add.sprite(16, alto - 66, 'corazon');
             lifeText = game.add.text(0, 0, vida, {
-                fontSize: '12px',
+                fontSize: '50px',
                 fill: '#757676'
             });
             lifeText.alignTo(spriteCorazon, Phaser.RIGHT_CENTER, 16);
 
             finText = game.add.text(ancho/2, alto/2, "", {
-                fontSize: '70px',
+                fontSize: '20px',
                 fill: '#757676', 
                 align: "center"
             });
@@ -97,7 +97,7 @@ var app = {
         if (vida > 0) {
             puntuacion++;
             scoreText.text = puntuacion;
-            velocidad -= 500;
+            velocidad -= 100;
         }
     },
 
