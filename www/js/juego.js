@@ -60,7 +60,7 @@ var app = {
             sprite.body.onWorldBounds.add(app.decrementaVida, this);
             game.add.tween(sprite).to({
                 y: game.height + (1600 + sprite.y)
-            }, velocidad + app.numeroAleatorioHasta(1000), Phaser.Easing.Linear.None, true);
+            }, velocidad + app.numeroAleatorioHasta(10000), Phaser.Easing.Linear.None, true);
 
             total++;
             timer = game.time.now + 100;
