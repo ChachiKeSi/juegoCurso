@@ -1,7 +1,7 @@
 var app = {
     inicio: function () {
         DIAMETRO_BOLA = 50;
-        velocidad = 40000;
+        velocidad = 20000;
         puntuacion = 0;
         vida = 100;
         total = 0;
@@ -30,7 +30,7 @@ var app = {
             });
             var spriteCorazon = game.add.sprite(16, alto - 66, 'corazon');
             lifeText = game.add.text(0, 0, vida, {
-                fontSize: '50px',
+                fontSize: '12px',
                 fill: '#757676'
             });
             lifeText.alignTo(spriteCorazon, Phaser.RIGHT_CENTER, 16);
