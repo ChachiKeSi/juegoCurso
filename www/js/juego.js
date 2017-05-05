@@ -18,28 +18,35 @@ var app = {
         var game = new Phaser.Game(ancho, alto, Phaser.AUTO, 'juego-jgb', estados);
 
         function preload() {
-            game.stage.backgroundColor = '#f27d0c';
-            game.load.image('bola', 'assets/bola.png');
+            //game.stage.backgroundColor = '#f27d0c';
+            game.load.image('bola', 'assets/echando50.png');
             game.load.image('corazon', 'assets/corazon.png');
+            game.load.image('cesped', 'assets/cesped.jpg');
+            game.load.image('piscina', 'assets/piscina100.jpg');
         }
 
         function create() {
+            game.add.tileSprite(0, 0, ancho, alto, 'cesped');
+            game.add.tileSprite(0, alto-75, ancho, 100, 'piscina');
             scoreText = game.add.text(16, 16, puntuacion, {
                 fontSize: '50px',
-                fill: '#757676'
+                fill: '#fff'
             });
+            scoreText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             var spriteCorazon = game.add.sprite(16, alto - 66, 'corazon');
             lifeText = game.add.text(0, 0, vida, {
                 fontSize: '50px',
-                fill: '#757676'
+                fill: '#000'
             });
+            lifeText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             lifeText.alignTo(spriteCorazon, Phaser.RIGHT_CENTER, 16);
 
             finText = game.add.text(ancho/2, alto/2, "", {
                 fontSize: '20px',
-                fill: '#757676', 
+                fill: '#fff', 
                 align: "center"
             });
+            finText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             finText.anchor.x = 0.5;
             finText.anchor.y = 0.5;
             soltarBola();
@@ -83,7 +90,7 @@ var app = {
         if (vida > 0)
             vida = vida - 5;
         if (vida <= 0) {
-            finText.text = "Has obtenido " + puntuacion + " puntos.\n Pulsa aquí para reiniciar";
+            finText.text = "La has liado parda.\nHas obtenido " + puntuacion + " puntos.\n Pulsa aquí para reiniciar";
             finText.inputEnabled = true;
             finText.events.onInputDown.add(app.recomienza, this);
             //app.vigilaSensores();
