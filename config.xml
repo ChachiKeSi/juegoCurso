@@ -16,4 +16,5 @@
               <icon src="res/android/icon-72-hdpi.png" density="hdpi" />
               <icon src="res/android/icon-96-xhdpi.png" density="xhdpi" />
      </platform>
+	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
 </widget>
