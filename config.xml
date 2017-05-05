@@ -10,8 +10,10 @@
     <content src="index.html" />
     <access origin="*" />
 	<preference name="orientation" value="portrait" />
-	<icon src="www/assets/ico-36.png" width="36" height="36" />
-	<icon src="www/assets/ico-48.png" width="48" height="48" />
-	<icon src="www/assets/ico-72.png" width="72" height="72" />
-	<icon src="www/assets/ico-96.png" width="96" height="96" />
+	<platform name="android">
+              <icon src="res/android/icon-36-ldpi.png" density="ldpi" />
+              <icon src="res/android/icon-48-mdpi.png" density="mdpi" />
+              <icon src="res/android/icon-72-hdpi.png" density="hdpi" />
+              <icon src="res/android/icon-96-xhdpi.png" density="xhdpi" />
+     </platform>
 </widget>
