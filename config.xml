@@ -10,4 +10,8 @@
     <content src="index.html" />
     <access origin="*" />
 	<preference name="orientation" value="portrait" />
+	<icon src="www/assets/ico-36.png" width="36" height="36" />
+	<icon src="www/assets/ico-48.png" width="48" height="48" />
+	<icon src="www/assets/ico-72.png" width="72" height="72" />
+	<icon src="www/assets/ico-96.png" width="96" height="96" />
 </widget>
