@@ -23,6 +23,13 @@ var app = {
             game.load.image('corazon', 'assets/corazon.png');
             game.load.image('cesped', 'assets/cesped.jpg');
             game.load.image('piscina', 'assets/piscina100.jpg');
+            var admobid = {};
+  if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
+    admobid = {
+      banner: 'ID del bloque de anuncios: ca-app-pub-9210522881944532/3939737649', // or DFP format "/6253334/dfp_example_ad"
+      interstitial: 'ca-app-pub-9210522881944532~2463004443'
+    };
+  }
         }
 
         function create() {
@@ -90,6 +97,11 @@ var app = {
         if (vida > 0)
             vida = vida - 5;
         if (vida <= 0) {
+            // preppare and load ad resource in background, e.g. at begining of game level
+if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+
+// show the interstitial later, e.g. at end of game level
+if(AdMob) AdMob.showInterstitial();
             finText.text = "La has liado parda.\nHas obtenido " + puntuacion + " puntos.\n Pulsa aquí para reiniciar";
             finText.inputEnabled = true;
             finText.events.onInputDown.add(app.recomienza, this);
